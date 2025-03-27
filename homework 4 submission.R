@@ -107,6 +107,8 @@ round((exp(intercept_mistletoe)) - (exp(intercept_mistletoe+slope_unparasitized*
 # = 295
 
 #Answer:Seedling recruitment beneath parasitized and unparasitized treatment trees differ by 295 seedlings. Parasitised plants having more seedlings than unparasitized plants. 
+
+## ASW: wonderful!! Nice work!
  
 #Explain which elements of your glm results informed your conclusions and annotate the steps you needed to take to interpret your parameters. 
 
@@ -176,16 +178,22 @@ exp(intercept_mistletoe_2 + slope_unparasitized_2*1 + slope_parasitized_2012*1 +
 #=21
 # There is 21 Seedling density in unparasitized plot in 2012. therefore there is an increase from 5 seedlings that were present in the same plots in 2011. Biologically this means that rainfall has a slightly positive effect on the number of seedlings.
 
+## ASW: great work here, Tshia! This is awesome!
 
 #Write ~2 new sentences that summarize the results of the new model and their biological implications:
 
 #Since in the year 2012 there was more rainfall. the results shows a positve coefficient value for both pararitized and unparasitixed trees in 2012 when the were was more rainfall compared to 2011.
+
+## ASW: Right, but what does the interaction indicate? The positive interaction suggests that the difference between parasitized and unparasitized trees is slightly reduced.
+
 
 
 #visualizing the plot 
  
 
 plot_predictions(mistletoe.negativebinomial.yr, condition=c("Treatment", "Year"))
+
+## ASW: nice work! 27/30
 
 ##########################################################################
 
@@ -210,12 +218,14 @@ glm_model <- glm(mortality ~ thinning, data = treemortality, family = binomial)
 summary(glm_model)
 
 # Extract the coefficients for interpretation
-exp(coef(glm_model))  
+exp(coef(glm_model))  ## ASW: this is on the odds ratio scale, so it's a little bit of a different interpretation. 
 
 
 #Explanation
 
 #The results suggests that thinning is an effective way to help trees survive wildfires. Thinning significantly reduces tree mortality in wildfires (p < 0.001). Trees in thinned areas are 84% less likely to die compared to trees in unthinned areas. 
+
+## ASW: odds are 84% lower in the thinned group, compared to the unthinned group. We will talk about odds interpretation in class!
 
 
 
@@ -240,4 +250,12 @@ summary(glm_updated_2a)
 
 ###The effect of thinning weakened (reduced)(Estimate = -0.9163), though it remains statistically significant (p < 0.001).
 #from the updated model, slope and road distance both significantly increase tree mortality (positive estimates: roaddist=0.54, slope= 0.82). This suggests that trees on steeper slopes and those far from roads have a higher mortality rater (high chance of dying in the wildfire)
+
+
+## ASW: Great! What does that change in effect size look like on the probability scale? And why did it change so much? The key thing here is that slope and distance from roads are biasing the effect of thinning in the first model, making it appear more effective than it is because of the fact that thinning treatments are more likely to occur in locations where fire severity is already lower (closer to roads, on shallower slopes). The predicted effect of thinning in the first model is a decrease in mortality from 73% to 29%, but in the second model, this effect decreases (Mortality decreases from 54% to 29%)
+
+## 17/20
+
+
+## ASW: nice job! 44/50
 
